@@ -12,3 +12,7 @@
 
     > Write File 
         - fs.writeFile(filePath, write_content, callbackFunction)
+
+    > Directories
+        - fs.mkdir(folderPath, callbackFunction)
+        - fs.rmdir(folderPath, callbackFunction)

@@ -3,7 +3,7 @@ console.log(`Welcome to ${title}`);
 
 
 // Global Object
-console.log(global);
+// console.log(global);
 
 // Asynchronous
 // setTimeout(() => {
@@ -35,3 +35,27 @@ fs.writeFile('./hello.txt', 'Hello! I am Mahesh', () => {
 fs.writeFile('./demo.txt', 'Hello! Nodejs', () => {
     console.log("file was written");
 });
+
+// Create Directory
+if (!fs.existsSync('./assets')) {
+    fs.mkdir('./assets', (error) => {
+        if (error) {
+            console.log(error);
+        }
+        console.log("Assets folder is created");
+    });
+} else{
+    console.log("Assets folder already exists");
+}
+
+// Remove Directory
+if (fs.existsSync('./assets')) {
+    fs.rmdir('./assets', (error) => {
+        if (error) {
+            console.log(error);
+        }
+        console.log("Assets folder is deleted");
+    });
+} else{
+    console.log("Assets folder already deleted");
+}
