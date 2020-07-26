@@ -19,3 +19,25 @@
     > Directories
         - fs.mkdir(folderPath, callbackFunction)
         - fs.rmdir(folderPath, callbackFunction)
+
+    > Stream
+        const readStream = fs.createReadStream('./docs/hello.txt', { encoding: "utf8" });
+        const writeStream = fs.createWriteStream('./docs/blog.txt');
+
+        readStream.on('data', (chunk) => {
+            console.log("------ New Chunk ------");
+            console.log(chunk);
+            writeStream.write("\n-----New Chunk-----\n");
+            writeStream.write(chunk);
+        });
+
+        //Piping
+        readStream.pipe(writeStream)
+
+## Http
+    > const _http = require('http');
+
+        const server = _http.createServer(requestListener);
+
+        server.listen(port?: number, hostname?: string, backlog?: number, listeningListener?: () => void)
+
