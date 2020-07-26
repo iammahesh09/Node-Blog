@@ -55,3 +55,18 @@
             res.write('Hello! NodeJs Blog');
             res.end();
         });
+
+        > Response returning html pages
+
+            res.setHeader('Content-Type', 'text/html');
+        
+            _fs.readFile('./views/index.html', (error, data) => {
+                if (error) {
+                    console.log(error);
+                    res.end();
+                } else {
+                    res.write(data);
+                    res.end();
+                }
+            });
+

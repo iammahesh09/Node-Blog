@@ -1,10 +1,22 @@
 const _http = require("http");
+const _fs = require('fs');
 
 const server = _http.createServer((req, res) => {
+
     console.log(`Path: ${req.url} \nMethod: ${req.method}`);
-    res.setHeader('Content-Type', 'text/plain');
-    res.write('Hello! NodeJs Blog');
-    res.end();
+
+    res.setHeader('Content-Type', 'text/html');
+
+    _fs.readFile('./views/index.html', (error, data) => {
+        if (error) {
+            console.log(error);
+            res.end();
+        } else {
+            res.write(data);
+            res.end();
+        }
+    });
+
 });
 
 server.listen("4000", "localhost", () => {
