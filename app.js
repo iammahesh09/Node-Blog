@@ -1,13 +1,34 @@
 const _http = require("http");
-const _fs = require('fs');
+const _fs = require("fs");
 
 const server = _http.createServer((req, res) => {
 
     console.log(`Path: ${req.url} \nMethod: ${req.method}`);
 
-    res.setHeader('Content-Type', 'text/html');
+    res.setHeader("Content-Type", "text/html");
 
-    _fs.readFile('./views/index.html', (error, data) => {
+    let _path = "./views/";
+
+    switch (req.url) {
+        case "/":
+            _path += 'index.html';
+            res.statusCode = 200;
+            break;
+        case "/about":
+            _path += 'about.html';
+            res.statusCode = 200;
+            break;
+        case "/blog":
+            _path += 'blog.html';
+            res.statusCode = 200;
+            break;
+        default:
+            _path += '404.html';
+            res.statusCode = 404;
+            break;
+    }
+
+    _fs.readFile(_path, (error, data) => {
         error ? console.log(error) : res.write(data);
         res.end();
     });
