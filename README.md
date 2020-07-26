@@ -41,3 +41,10 @@
 
         server.listen(port?: number, hostname?: string, backlog?: number, listeningListener?: () => void)
 
+    > Http request
+        const server = _http.createServer((req, res) => {
+            console.log(`
+                Path: ${req.url},
+                Method: ${req.method}`
+            );
+        });

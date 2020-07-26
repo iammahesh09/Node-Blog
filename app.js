@@ -1,7 +1,7 @@
 const _http = require("http");
 
 const server = _http.createServer((req, res) => {
-    console.log("Welcome to NodeJS Blog");
+    console.log(`Path: ${req.url} \nMethod: ${req.method}`);
 });
 
 server.listen("4000", "localhost", () => {
