@@ -26,4 +26,12 @@ fs.readFile('./hello.txt', (error, data) => {
     }
     console.log(data); // <Buffer 48 65 6c 6c 6f 20 57 6f 72 6c 64 20 4e 6f 64 65 4a 73>
     console.log(data.toString()); // Hello World NodeJs
-})
+});
+
+// Write File
+fs.writeFile('./hello.txt', 'Hello! I am Mahesh', () => {
+    console.log("file was written");
+});
+fs.writeFile('./demo.txt', 'Hello! Nodejs', () => {
+    console.log("file was written");
+});

@@ -6,5 +6,9 @@
     > Javascript - 'window' is a global object
 
 ## File system
+    const fs = require('fs');
     > Read File
-        
+        - fs.readFile(filePath, callbackFunction);
+
+    > Write File 
+        - fs.writeFile(filePath, write_content, callbackFunction)
