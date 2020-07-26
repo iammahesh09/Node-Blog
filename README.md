@@ -48,3 +48,10 @@
                 Method: ${req.method}`
             );
         });
+
+    > Http response
+        const server = _http.createServer((req, res) => {
+            res.setHeader('Content-Type', 'text/plain');
+            res.write('Hello! NodeJs Blog');
+            res.end();
+        });
