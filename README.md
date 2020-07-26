@@ -13,6 +13,9 @@
     > Write File 
         - fs.writeFile(filePath, write_content, callbackFunction)
 
+    > Delete File
+        - fs.unlink(filePath, callbackFunction)
+
     > Directories
         - fs.mkdir(folderPath, callbackFunction)
         - fs.rmdir(folderPath, callbackFunction)

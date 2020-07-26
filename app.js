@@ -36,6 +36,18 @@ fs.writeFile('./demo.txt', 'Hello! Nodejs', () => {
     console.log("file was written");
 });
 
+// Delete File
+if (fs.existsSync('./demo.txt')) {
+    fs.unlink('./demo.txt', (error) => {
+        if (error) {
+            console.log(error);
+        }
+        console.log('file is deleted');
+    });
+} else {
+    console.log("file already deleted");
+}
+
 // Create Directory
 if (!fs.existsSync('./assets')) {
     fs.mkdir('./assets', (error) => {
@@ -44,7 +56,7 @@ if (!fs.existsSync('./assets')) {
         }
         console.log("Assets folder is created");
     });
-} else{
+} else {
     console.log("Assets folder already exists");
 }
 
@@ -56,6 +68,6 @@ if (fs.existsSync('./assets')) {
         }
         console.log("Assets folder is deleted");
     });
-} else{
+} else {
     console.log("Assets folder already deleted");
 }
